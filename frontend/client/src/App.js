@@ -6,6 +6,7 @@ import Deliverydetail from './components/Deliverydetail';
 import Header from './components/Header';
 import Adddelivery from './components/Adddelivery';
 import Editdelivery from './components/Editdelivery';
+import Footer from './components/Footer';
 class App extends Component {
   render() {
     return (
@@ -17,6 +18,7 @@ class App extends Component {
           <Route path="/add" component={Adddelivery} />
           <Route path="/edit/:id" component={Editdelivery} />
         </div>
+        <Footer />
       </BrowserRouter>
     );
   }

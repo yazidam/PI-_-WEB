@@ -61,6 +61,7 @@ export default class Editdelivery extends Component {
       );
     }
   };
+
   render() {
     return (
       <div className="col-md-10 mt-3 mx-auto">

@@ -31,6 +31,26 @@ export default class Listdelivery extends Component {
       }
     });
   }
+
+  filterindata(devv, searchTerm) {
+    const resultat = devv.filter(
+      (x) =>
+        x.first_name.toLowerCase().includes(searchTerm) ||
+        x.last_name.toLowerCase().includes(searchTerm) ||
+        x.phone.toLowerCase().includes(searchTerm) ||
+        x.from.toLowerCase().includes(searchTerm) ||
+        x.to.toLowerCase().includes(searchTerm)
+    );
+    this.setState({ devv: resultat });
+  }
+  handleTextSearch = (e) => {
+    const searchTerm = e.currentTarget.value;
+    axios.get('http://localhost:4000/delivery/all').then((res) => {
+      if (res.data) {
+        this.filterindata(res.data.data, searchTerm);
+      }
+    });
+  };
   render() {
     return (
       <div className="container">
