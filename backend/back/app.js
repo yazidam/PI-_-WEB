@@ -9,6 +9,7 @@ var usersRouter = require('./routes/users');
 var deliveryRouter = require('./routes/delivery');
 var app = express();
 var mongoose = require('mongoose');
+const cors = require('cors');
 
 mongoose
   .connect(
@@ -29,7 +30,9 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(cors());
 
+//********************************** */
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/delivery', deliveryRouter);
