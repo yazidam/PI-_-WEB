@@ -7,6 +7,7 @@ import Header from './components/Header';
 import Adddelivery from './components/Adddelivery';
 import Editdelivery from './components/Editdelivery';
 import Footer from './components/Footer';
+import Maps from './components/Maps';
 class App extends Component {
   render() {
     return (
@@ -17,6 +18,7 @@ class App extends Component {
           <Route path="/detail/:id" component={Deliverydetail} />
           <Route path="/add" component={Adddelivery} />
           <Route path="/edit/:id" component={Editdelivery} />
+          <Route path="/map" component={Maps} />
         </div>
         <Footer />
       </BrowserRouter>

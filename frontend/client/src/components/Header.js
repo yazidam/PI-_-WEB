@@ -29,8 +29,8 @@ class Header extends Component {
           </ul>
           <ul className="navbar-nav">
             <li className="nav-item active">
-              <Link className="nav-link" to="/company">
-                Find Company <span className="sr-only"></span>
+              <Link className="nav-link" to="/map">
+                Go To Map <span className="sr-only"></span>
               </Link>
             </li>
           </ul>

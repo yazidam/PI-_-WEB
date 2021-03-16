@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ReactPaginate from 'react-paginate';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 export default class Listdelivery extends Component {
@@ -8,30 +9,82 @@ export default class Listdelivery extends Component {
       devv: [],
       // limit: 2,
       // skip: 0,
+      pagtable: [],
+      perPage: 2,
+      currentPage: 0,
+      offset: 0,
     };
+    // this.handlePageClick = this.handlePageClick.bind(this);
   }
 
-  onDelete = (id) => {
-    axios.delete(`http://localhost:4000/delivery/dev/${id}`).then((res) => {
-      alert(' has been deleted successfully');
-      this.getDELVERY();
-    });
-  };
+  // getDELVERY() {
+  //   axios.get(`http://localhost:4000/delivery/all`).then((res) => {
+  //     if (res.data) {
+  //       this.setState({
+  //         devv: res.data.data,
+  //       });
+  //       console.log('dev :', this.state.devv);
+  //     }
+  //   });
+  // }
 
+  //*************************************************CODE PAGINATION Y5DEM AMA FIH UN PETIT ERR************************************************************* */
+  handlePageClick = (e) => {
+    const selectedPage = e.selected;
+    const offset = selectedPage * this.state.perPage;
+
+    this.setState(
+      {
+        currentPage: selectedPage,
+        offset: offset,
+      },
+      () => {
+        this.loadMoreData();
+      }
+    );
+  };
+  loadMoreData() {
+    const data = this.state.pagtable;
+
+    const slice = data.slice(
+      this.state.offset,
+      this.state.offset + this.state.perPage
+    );
+    this.setState({
+      pageCount: Math.ceil(data.length / this.state.perPage),
+      devv: slice,
+    });
+  }
   componentDidMount() {
     this.getDELVERY();
   }
   getDELVERY() {
     axios.get(`http://localhost:4000/delivery/all`).then((res) => {
-      if (res.data) {
-        this.setState({
-          devv: res.data.data,
-        });
-        console.log('dev :', this.state.devv);
-      }
+      console.log(res.data);
+      var tdata = res.data.data;
+      console.log('data-->' + JSON.stringify(tdata));
+
+      var slice = tdata.slice(
+        this.state.offset,
+        this.state.offset + this.state.perPage
+      );
+      this.setState({
+        pageCount: Math.ceil(tdata.length / this.state.perPage),
+        pagtable: res.data.data,
+        devv: slice,
+
+        modele: res.data.data[0].to,
+      });
+      console.log('dev :', this.state.dev);
+      console.log('hhhh :', this.state.pagtable);
+      console.log('hh:', this.state.modele);
     });
   }
 
+  //******************************************************************************************************************** */
+  // componentDidMount() {
+  //   this.getDELVERY();
+  // }
   filterindata(devv, searchTerm) {
     const resultat = devv.filter(
       (x) =>
@@ -49,6 +102,13 @@ export default class Listdelivery extends Component {
       if (res.data) {
         this.filterindata(res.data.data, searchTerm);
       }
+    });
+  };
+
+  onDelete = (id) => {
+    axios.delete(`http://localhost:4000/delivery/dev/${id}`).then((res) => {
+      alert(' has been deleted successfully');
+      this.getDELVERY();
     });
   };
   render() {
@@ -115,6 +175,19 @@ export default class Listdelivery extends Component {
         <Link to="/add" className="bot btn btn-secondary">
           Add Book
         </Link>
+        <ReactPaginate
+          previousLabel={'prev'}
+          nextLabel={'next'}
+          breakLabel={'...'}
+          breakClassName={'break-me'}
+          pageCount={this.state.pageCount}
+          marginPagesDisplayed={2}
+          pageRangeDisplayed={5}
+          onPageChange={this.handlePageClick}
+          containerClassName={'pagination'}
+          subContainerClassName={'pages pagination'}
+          activeClassName={'active'}
+        />
 
         {/* <div>
           <div onClick={this.nextPage}> Previous Page </div>
