@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import ReactPaginate from 'react-paginate';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+
 export default class Listdelivery extends Component {
   constructor(props) {
     super(props);
@@ -73,11 +74,42 @@ export default class Listdelivery extends Component {
         pagtable: res.data.data,
         devv: slice,
 
-        modele: res.data.data[0].to,
+        from: res.data.data[0].from,
+        count: res.data.data.length,
       });
-      console.log('dev :', this.state.dev);
-      console.log('hhhh :', this.state.pagtable);
-      console.log('hh:', this.state.modele);
+
+      axios.get(`http://localhost:4000/delivery/all/from`).then((res) => {
+        this.setState({
+          list: res.data.data,
+        });
+        this.state.list.map((l) => {
+          axios
+            .get(
+              `https://geocode.search.hereapi.com/v1/geocode?q=${l.from}&apiKey=YFsah8ssbhE0G1XnvsrAv6jZ_dJrJnseSu-ais5JNIg`
+            )
+            .then((res, err) => {
+              console.log('length fo table :', this.state.count);
+
+              console.log('position lan et lat : ', res.data.items[0].position);
+
+              console.log('location bet t7did : ', res.data.items[0].title);
+              // console.log('fromm : ', this.state.from);
+              const to2 = `https://geocode.search.hereapi.com/v1/geocode?q=${l.from}&apiKey=YFsah8ssbhE0G1XnvsrAv6jZ_dJrJnseSu-ais5JNIg`;
+              console.log('to : ', to2);
+              // console.log(
+              //   'geocode : ',
+              //   `https://geocode.search.hereapi.com/v1/geocode?q=${this.state.from}&apiKey=60U5H1Z9i-hVqOiuV1mw5UJCXcqK_kHNl7Us-_YUqmI`
+              // );
+            });
+        });
+
+        //console.log('dev :', this.state.dev);
+        //console.log('hhhh :', this.state.pagtable);
+        console.log('hh:', this.state.from);
+        //*********************************************************************** */
+        console.log('dev :', this.state.devv);
+        console.log('fromm :', this.state.from);
+      });
     });
   }
 
@@ -111,6 +143,17 @@ export default class Listdelivery extends Component {
       this.getDELVERY();
     });
   };
+  // getallform = () => {
+  //   axios.get(`http://localhost:4000/delivery/all/from`).then((res) => {
+  //     this.setState({
+  //       list: res.data.data,
+  //     });
+  //     console.log('all from :', this.state.list);
+  //   });
+  // };
+  //***************************************************************************fahed */
+
+  //********************************************************************************* */
   render() {
     return (
       <div className="container">
