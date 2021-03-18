@@ -34,6 +34,13 @@ class Header extends Component {
               </Link>
             </li>
           </ul>
+          <ul className="navbar-nav">
+            <li className="nav-item active">
+              <Link className="nav-link" to="/delivery">
+                Go To Delivery man <span className="sr-only"></span>
+              </Link>
+            </li>
+          </ul>
         </div>
       </nav>
     );

@@ -54,3 +54,10 @@
   display: flex;
   justify-content: center;
 }
+.colllll {
+  display: flex;
+
+  flex-wrap: wrap;
+  height: auto;
+  width: auto;
+}
