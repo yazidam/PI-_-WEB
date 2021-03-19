@@ -46,5 +46,9 @@ router.get('/all/from', async (req, res, next) => {
   const devv = await Delivery.find({}, { _id: 0, from: 1 });
   res.send({ data: devv });
 });
+router.get('/all/to', async function (req, res, next) {
+  const devv = await Delivery.find({}, { _id: 0, to: 1 });
+  res.send({ data: devv });
+});
 
 module.exports = router;
