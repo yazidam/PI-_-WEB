@@ -12,6 +12,7 @@ import Listdelivery_man from './components/Listdelivery_man';
 import Addlivreur from './components/Addlivreur';
 import Livreurdetail from './components/Livreurdetail';
 import Editlivreur from './components/Editlivreur';
+import BarcodeGenerator from './components/BarcodeGenerator';
 class App extends Component {
   render() {
     return (
@@ -27,6 +28,7 @@ class App extends Component {
           <Route path="/addlivreeur" component={Addlivreur} />
           <Route path="/detaill/:id" component={Livreurdetail} />
           <Route path="/editlivreur/:id" component={Editlivreur} />
+          <Route path="/code" component={BarcodeGenerator} />
         </div>
         <Footer />
       </BrowserRouter>

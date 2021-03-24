@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { setErrors } from '../ERRORS/setErrors';
+import { Link, NavLink } from 'react-router-dom';
+import { SyncDisabled } from '@material-ui/icons';
 export default class Adddelivery extends Component {
   constructor(props) {
     super(props);
@@ -56,7 +58,7 @@ export default class Adddelivery extends Component {
     return (
       <div className="col-md-10 mt-3 mx-auto">
         <h1 className="h3 mb-3 font-weight-normal">Create new bokk</h1>
-        <form className="needs-validation" noValidate>
+        <form className="needs-validation" onSubmit={this.onSubmit}>
           <div className="form-group">
             <label>first_name</label>
             <input
@@ -67,7 +69,7 @@ export default class Adddelivery extends Component {
               value={this.state.first_name}
               onChange={this.handleInputChange}
             />
-            {this.state.errors.title && (
+            {this.state.errors.first_name && (
               <div className="text-danger">{this.state.errors.first_name}</div>
             )}
           </div>
@@ -137,13 +139,25 @@ export default class Adddelivery extends Component {
           </a> */}
           <button
             className="btn btn-success"
-            type="submit"
             onClick={this.onSubmit}
+            type="submit"
           >
             <i className="far fa-check-square"></i>
             &nbsp;Submit
           </button>
+          {/* <button to="/code" className="btn btn-success mx-5">
+            {' '}
+            QR Code{' '}
+          </button> */}
         </form>
+        <Link
+          // disabled="disabled"
+          className=" bttt btn btn-secondary my-3 "
+          to="/code"
+        >
+          {}
+          QR
+        </Link>
       </div>
     );
   }
