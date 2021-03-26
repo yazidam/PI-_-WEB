@@ -3,6 +3,7 @@ export const setErrors1 = (
   last_name,
   phone,
   cin,
+  availability,
   email,
   password
 ) => {
@@ -11,6 +12,7 @@ export const setErrors1 = (
   errors.last_name = last_name ? '' : 'last_name is required';
   errors.phone = phone ? '' : 'phone is required';
   errors.cin = cin ? '' : 'cin is required';
+  errors.availability = availability ? '' : 'availability is required';
   errors.email = email ? '' : 'email is required';
   errors.password = password ? '' : 'password is required';
 

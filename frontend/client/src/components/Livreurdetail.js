@@ -26,6 +26,7 @@ export default class Livreurdetail extends Component {
       last_name,
       phone,
       cin,
+      availability,
       email,
       password,
     } = this.state.livreeur;
@@ -43,6 +44,8 @@ export default class Livreurdetail extends Component {
           <dd className="col-sm-10">{phone}</dd>
           <dt className="col-sm-2">cin</dt>
           <dd className="col-sm-10">{cin}</dd>
+          <dt className="col-sm-2">availability</dt>
+          <dd className="col-sm-10">{availability}</dd>
           <dt className="col-sm-2">email</dt>
           <dd className="col-sm-10">{email}</dd>
           <dt className="col-sm-2">password</dt>

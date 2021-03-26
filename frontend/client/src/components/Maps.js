@@ -337,11 +337,11 @@ export default class Maps extends Component {
             listto: res.data.data,
             count: res.data.data.length,
           });
-
+          console.log('count est egal : ', this.state.count); //1
           this.state.list.map((l) => {
             axios
               .get(
-                `https://geocode.search.hereapi.com/v1/geocode?q=${l.from}&apiKey=XUiDrY5eK1WdHNq-TE3zW3Qa0hvU7bA1zrhMmwPMYXQ`
+                `https://geocode.search.hereapi.com/v1/geocode?q=${l.from}&apiKey=deksdmQiX5fqfsrpePT1fEaL6BaoFas-_Yj-r61tKGo`
               )
               .then((res, err) => {
                 this.setState({
@@ -362,7 +362,7 @@ export default class Maps extends Component {
           this.state.listto.map((t) => {
             axios
               .get(
-                `https://geocode.search.hereapi.com/v1/geocode?q=${t.to}&apiKey=XUiDrY5eK1WdHNq-TE3zW3Qa0hvU7bA1zrhMmwPMYXQ`
+                `https://geocode.search.hereapi.com/v1/geocode?q=${t.to}&apiKey=deksdmQiX5fqfsrpePT1fEaL6BaoFas-_Yj-r61tKGo`
               )
               .then((res, err) => {
                 this.setState({
@@ -465,6 +465,7 @@ export default class Maps extends Component {
                           map={this.map}
                           Raed={this.state.raed}
                           Ahmed={this.state.ahmed}
+                          Count={this.state.count} ///2
                         />
                       </>
                     ))}

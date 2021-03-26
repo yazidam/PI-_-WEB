@@ -9,17 +9,27 @@ export default class Editlivreur extends Component {
       last_name: '',
       phone: '',
       cin: '',
+      availability: '',
       email: '',
       password: '',
       errors: {},
     };
   }
-  validate = (first_name, last_name, phone, cin, email, password) => {
+  validate = (
+    first_name,
+    last_name,
+    phone,
+    cin,
+    availability,
+    email,
+    password
+  ) => {
     const errors = setErrors1(
       first_name,
       last_name,
       phone,
       cin,
+      availability,
       email,
       password
     );
@@ -35,6 +45,7 @@ export default class Editlivreur extends Component {
           last_name: res.data.data.last_name,
           phone: res.data.data.phone,
           cin: res.data.data.cin,
+          availability: res.data.data.availability,
           email: res.data.data.email,
           password: res.data.data.password,
         });
@@ -51,13 +62,33 @@ export default class Editlivreur extends Component {
   onSubmit = (e) => {
     e.preventDefault();
     const id = this.props.match.params.id;
-    const { first_name, last_name, phone, cin, email, password } = this.state;
-    if (this.validate(first_name, last_name, phone, cin, email, password)) {
+    const {
+      first_name,
+      last_name,
+      phone,
+      cin,
+      availability,
+      email,
+      password,
+    } = this.state;
+    if (
+      this.validate(
+        first_name,
+        last_name,
+        phone,
+        cin,
+        availability,
+        email,
+        password
+      )
+    ) {
       const data = {
         first_name: first_name,
         last_name: last_name,
         phone: phone,
         cin: cin,
+        availability: availability,
+        email: email,
         password: password,
       };
       console.log(data);
@@ -132,6 +163,22 @@ export default class Editlivreur extends Component {
             />
             {this.state.errors.cin && (
               <div className="text-danger">{this.state.errors.cin}</div>
+            )}
+          </div>
+          <div className="form-group">
+            <label>availability</label>
+            <input
+              type="text"
+              className="form-control"
+              name="availability"
+              placeholder="Enter availability"
+              value={this.state.availability}
+              onChange={this.handleInputChange}
+            />
+            {this.state.errors.availability && (
+              <div className="text-danger">
+                {this.state.errors.availability}
+              </div>
             )}
           </div>
 

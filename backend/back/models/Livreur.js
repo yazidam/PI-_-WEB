@@ -7,6 +7,7 @@ const schemalivreur = new mongoose.Schema({
   cin: { type: String, required: true },
   email: { type: String },
   password: { type: String, required: true },
+  availability: { type: String, required: true },
 });
 
 module.exports = mongoose.model('livreur', schemalivreur);

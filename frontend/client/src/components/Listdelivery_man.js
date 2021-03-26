@@ -49,6 +49,9 @@ export default class Listdelivery_man extends Component {
                   <h5 className="card-title">LAST_NAME : {vk.last_name}</h5>
                   <h5 className="card-title">PHONE : {vk.phone}</h5>
                   <h5 className="card-title">CIN : {vk.cin}</h5>
+                  <h5 className="card-title">
+                    AVAILABILITY : {vk.availability}
+                  </h5>
                   <h5 className="card-title">EMAIL : {vk.email}</h5>
                   <h5 className="card-title">PASSWORD : {vk.password}</h5>
                 </div>
@@ -72,7 +75,7 @@ export default class Listdelivery_man extends Component {
           </div>
         </div>
         <Link to="/addlivreeur" className="bot btn btn-secondary my-5">
-          Add Book
+          Add
         </Link>
       </>
     );
