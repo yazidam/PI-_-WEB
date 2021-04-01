@@ -42,5 +42,9 @@ router.patch('/livreur/:id', async (req, res, next) => {
     res.status(404).send({ error: 'delivery not found try again' });
   }
 });
+router.get('/firstname', async (req, res, next) => {
+  const tablivreur = await Livreur.find({}, { _id: 0, first_name: 1 });
+  res.send({ data: tablivreur });
+});
 
 module.exports = router;

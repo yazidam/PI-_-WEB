@@ -8,6 +8,7 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var deliveryRouter = require('./routes/delivery');
 var livreurRouter = require('./routes/livreur');
+var admindelivery = require('./routes/admindelivery');
 var app = express();
 var mongoose = require('mongoose');
 const cors = require('cors');
@@ -50,6 +51,7 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/delivery', deliveryRouter);
 app.use('/livreur', livreurRouter);
+app.use('/admindelll', admindelivery);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

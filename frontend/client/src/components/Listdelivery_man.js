@@ -2,11 +2,13 @@ import React, { Component } from 'react';
 import axios from 'axios';
 
 import { Link } from 'react-router-dom';
+import Add from './Admin/adddeliveryman';
 export default class Listdelivery_man extends Component {
   constructor(props) {
     super(props);
     this.state = {
       tablivreur: [],
+      // jj: [],
 
       //pagtable: [],
       //perPage: 2,
@@ -26,8 +28,20 @@ export default class Listdelivery_man extends Component {
   }
   componentDidMount() {
     this.getLIVREUR();
+    // this.getname();
   }
-
+  // getname() {
+  //   axios.get('http://localhost:4000/livreur/firstname').then((res) => {
+  //     this.setState({
+  //       jj: res.data.data,
+  //       // count: res.data.data.length,
+  //     });
+  //     // this.state.jj.map((x) => {
+  //     //   console.log(x);
+  //     // });
+  //     console.log('table nom :', this.state.jj);
+  //   });
+  // }
   onDelete = (id) => {
     axios.delete(`http://localhost:4000/livreur/livreur/${id}`).then((res) => {
       alert(' has been deleted successfully');
@@ -77,6 +91,7 @@ export default class Listdelivery_man extends Component {
         <Link to="/addlivreeur" className="bot btn btn-secondary my-5">
           Add
         </Link>
+        {/* <Add hah={this.state.jj} /> */}
       </>
     );
   }
