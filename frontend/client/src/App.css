@@ -70,3 +70,11 @@
   text-align: center;
   color: darkgoldenrod;
 }
+.name {
+  text-decoration: none;
+  color: aliceblue;
+}
+.name2 {
+  text-decoration: none;
+  color: black;
+}

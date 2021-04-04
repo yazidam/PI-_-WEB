@@ -1,0 +1,29 @@
+@media (min-width: 992px) {
+  #mainnav {
+    padding-left: 70px;
+    padding-right: 70px;
+  }
+}
+nav {
+  /*background-color: #bfe2fd;*/
+  /*background-color: #B0CBDE;*/
+  /*background-color: #3D90DA;*/
+  background-color: #3dccda;
+  /*background-color: #04ccbc;*/
+}
+.nav-item {
+  margin-right: 5px;
+  font-size: 16px;
+}
+.navbar-brand {
+  font-size: 23px;
+}
+#logo {
+  width: 90px;
+  height: 90px;
+  margin-right: 25px;
+}
+.tohome {
+  color: black;
+  text-decoration: none;
+}

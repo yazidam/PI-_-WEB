@@ -3,6 +3,9 @@ import ReactPaginate from 'react-paginate';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import '../App.css';
+import { Table, Thead, Tbody, Tr, Th, Td } from 'react-super-responsive-table';
+import 'react-super-responsive-table/dist/SuperResponsiveTableStyle.css';
+
 import { CalendarComponent } from '@syncfusion/ej2-react-calendars';
 export default class Listdelivery extends Component {
   constructor(props) {
@@ -173,33 +176,33 @@ export default class Listdelivery extends Component {
             ></input>
           </div>
         </div>
-        <table className="table table-dark table-striped">
-          <thead>
-            <tr>
-              <th scope="col">NUM</th>
-              <th scope="col">FIRST_NAME</th>
-              <th scope="col">LAST_NAME</th>
-              <th scope="col">PHONE</th>
-              <th scope="col">FROM</th>
-              <th scope="col">TO</th>
-              <th scope="col">Action</th>
-            </tr>
-          </thead>
-          <tbody>
+        <Table className="table table-dark table-striped">
+          <Thead>
+            <Tr>
+              <Th scope="col">NUM</Th>
+              <Th scope="col">FIRST_NAME</Th>
+              <Th scope="col">LAST_NAME</Th>
+              <Th scope="col">PHONE</Th>
+              <Th scope="col">FROM</Th>
+              <Th scope="col">TO</Th>
+              <Th scope="col">Action</Th>
+            </Tr>
+          </Thead>
+          <Tbody>
             {this.state.devv.map((vk, index, key) => (
-              <tr>
-                <th scope="row">{index}</th>
-                <td>
-                  <Link to={`/detail/${vk._id}`}>
-                    <td>{vk.first_name}</td>
+              <Tr>
+                <Th scope="row">{index}</Th>
+                <Td>
+                  <Link className="name" to={`/detail/${vk._id}`}>
+                    <Td>{vk.first_name}</Td>
                   </Link>
-                </td>
-                <td>{vk.last_name}</td>
-                <td>{vk.phone}</td>
-                <td>{vk.from}</td>
-                <td>{vk.to}</td>
+                </Td>
+                <Td>{vk.last_name}</Td>
+                <Td>{vk.phone}</Td>
+                <Td>{vk.from}</Td>
+                <Td>{vk.to}</Td>
 
-                <td>
+                <Td>
                   <a className="btn btn-warning mx-3" href={`/edit/${vk._id}`}>
                     <i className="fas fa-edit"></i> Edit
                   </a>
@@ -210,11 +213,11 @@ export default class Listdelivery extends Component {
                   >
                     <i className="fas fa-times-circle"></i> Delete
                   </a>
-                </td>
-              </tr>
+                </Td>
+              </Tr>
             ))}
-          </tbody>
-        </table>
+          </Tbody>
+        </Table>
 
         <Link to="/add" className="bot btn btn-secondary">
           Add Book

@@ -58,7 +58,10 @@ export default class Listdelivery_man extends Component {
                 <div className="card-body ">
                   <h5 className="card-title">
                     FIRST_NAME :
-                    <Link to={`/detaill/${vk._id}`}> {vk.first_name}</Link>
+                    <Link className="name2" to={`/detaill/${vk._id}`}>
+                      {' '}
+                      {vk.first_name}
+                    </Link>
                   </h5>
                   <h5 className="card-title">LAST_NAME : {vk.last_name}</h5>
                   <h5 className="card-title">PHONE : {vk.phone}</h5>
