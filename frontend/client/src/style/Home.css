@@ -15,3 +15,7 @@
   text-align: center;
   flex-wrap: wrap; */
 }
+
+.d-block {
+  border-radius: 50px;
+}

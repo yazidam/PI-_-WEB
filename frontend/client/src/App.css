@@ -78,3 +78,9 @@
   text-decoration: none;
   color: black;
 }
+.table {
+  border: 1px solid #eeeeee;
+  box-shadow: 12px 12px 22px grey;
+  margin-top: 20px;
+  margin-bottom: 50px;
+}

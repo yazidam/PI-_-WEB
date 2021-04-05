@@ -57,6 +57,13 @@ class Header extends Component {
                 </Link>
               </li>
             </ul>
+            <ul className="navbar-nav">
+              <li className="nav-item active">
+                <Link className="nav-item nav-link" to="/about">
+                  About Us <span className="sr-only"></span>
+                </Link>
+              </li>
+            </ul>
           </div>
         </div>
       </nav>

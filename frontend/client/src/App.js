@@ -16,6 +16,7 @@ import BarcodeGenerator from './components/BarcodeGenerator';
 import deliverymanipulation from './components/Admin/deliverymanipulation';
 import adddeliveryman from './components/Admin/adddeliveryman';
 import Companyhome from './components/Companyhome';
+import { About } from './components/About';
 
 class App extends Component {
   render() {
@@ -34,6 +35,7 @@ class App extends Component {
           <Route path="/detaill/:id" component={Livreurdetail} />
           <Route path="/editlivreur/:id" component={Editlivreur} />
           <Route path="/code" component={BarcodeGenerator} />
+          <Route path="/about" component={About} />
           <Route
             path="/deliverymanipulation"
             component={deliverymanipulation}

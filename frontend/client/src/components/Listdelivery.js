@@ -203,16 +203,28 @@ export default class Listdelivery extends Component {
                 <Td>{vk.to}</Td>
 
                 <Td>
-                  <a className="btn btn-warning mx-3" href={`/edit/${vk._id}`}>
+                  {/* <a className="btn btn-warning mx-3" href={`/edit/${vk._id}`}>
                     <i className="fas fa-edit"></i> Edit
-                  </a>
-                  <a
+                  </a> */}
+                  {/* <a
                     className="btn btn-danger"
                     href="#"
                     onClick={() => this.onDelete(vk._id)}
                   >
                     <i className="fas fa-times-circle"></i> Delete
-                  </a>
+                  </a> */}
+
+                  <span className="icon mx-3">
+                    <Link to={`/edit/${vk._id}`}>
+                      <i
+                        className="fa fa-pencil"
+                        style={{ color: 'green' }}
+                      ></i>
+                    </Link>
+                  </span>
+                  <span className="icon" onClick={() => this.onDelete(vk._id)}>
+                    <i className="fa fa-trash" style={{ color: 'red' }}></i>
+                  </span>
                 </Td>
               </Tr>
             ))}
